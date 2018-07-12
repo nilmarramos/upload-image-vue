@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <AppHeader/>
+  <div>
+    <AppHeader/>
+    <div class="ui container">
+      <router-view/>
     </div>
-    <router-view/>
   </div>
 </template>
 
