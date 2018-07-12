@@ -22,7 +22,7 @@ const actions = {
 	},
 	logout: ({ commit }) => {
 		commit('setToken', null)
-		window.localStorage.removeItem('imgur_token ')
+		window.localStorage.removeItem('imgur_token')
 	}
 }
 
