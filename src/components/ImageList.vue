@@ -15,7 +15,7 @@
 	</div>
 	<div v-else>
 		<h2>Log in to get started!</h2>
-		<a href="" :click="login">Login</a>
+		<a href="" @click="login">Login</a>
 	</div>
 </template>
 
