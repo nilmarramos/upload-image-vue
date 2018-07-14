@@ -31,5 +31,12 @@ export default {
 			})
 		})
 		return Promise.all(promises)
+	},
+	deleteImages(images, token) {
+		return axios.delete(`${ROOT_URL}/3/image/${images}`, {
+			headers: {
+				Authorization: `Bearer ${token}`
+			}
+		})
 	}
 }

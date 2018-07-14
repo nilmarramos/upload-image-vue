@@ -1,10 +1,19 @@
 <template>
-	<div>
-		<div  v-if="isLoggedIn" class="image-container">
-			<img v-for="image in allImages" :src="image.link"/>
+	<div v-if="isLoggedIn">
+		<div class="ui grid container">
+			<div v-for="image in allImages" :key="image.id" class="four wide column">
+				<div class="ui card">
+					<div class="image">
+						<img class="ui fluid image" :src="image.link">
+					</div>
+					<div class="extra content">
+						<button @click="deleteImages(image.deletehash)" class="fluid ui button">Delete</button>
+					</div>
+				</div>
+			</div>
 		</div>
-		<h2 v-else> Log in to get started!</h2>
 	</div>
+	<h2 v-else>Log in to get started!</h2>
 </template>
 
 <script>
@@ -13,7 +22,7 @@
 	export default {
 		name: "ImageList",
 	computed: mapGetters(['allImages', 'isLoggedIn']),
-		methods: mapActions(['fetchImages']),
+		methods: mapActions(['fetchImages', 'deleteImages']),
 		created() {
 			this.fetchImages()
 		}
@@ -21,10 +30,6 @@
 </script>
 
 <style scoped>
-	.image-container {
-		column-count: 3;
-		column-gap: 0;
-	}
 	img {
 		max-width: 100%;
 		padding: 5px;

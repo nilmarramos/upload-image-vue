@@ -19,6 +19,12 @@ const actions = {
 		const { token } = rootState.auth
 		await api.uploadImages(images, token)
 		router.push('/')
+	},
+	async deleteImages({ rootState, commit }, images) {
+		const { token } = rootState.auth
+		await api.deleteImages(images, token)
+		const response = await api.fetchImages(token)
+		commit('setImages', response.data.data)
 	}
 }
 
