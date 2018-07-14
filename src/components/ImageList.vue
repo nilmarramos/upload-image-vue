@@ -13,7 +13,10 @@
 			</div>
 		</div>
 	</div>
-	<h2 v-else>Log in to get started!</h2>
+	<div v-else>
+		<h2>Log in to get started!</h2>
+		<a href="" :click="login">Login</a>
+	</div>
 </template>
 
 <script>
@@ -22,7 +25,7 @@
 	export default {
 		name: "ImageList",
 	computed: mapGetters(['allImages', 'isLoggedIn']),
-		methods: mapActions(['fetchImages', 'deleteImages']),
+		methods: mapActions(['fetchImages', 'deleteImages', 'login']),
 		created() {
 			this.fetchImages()
 		}
